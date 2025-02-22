@@ -19,13 +19,13 @@ const MovieDetailsPage = () => {
   }
 
   return movie ? (
-    <div>
+    <div className={s.MovieDetailsPage}>
       <ReturnButton />
-      <div className={s.divMovies}>
-        <img className={s.imgMovie} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+      <div>
+        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
         <h1>{movie.title}</h1>
         <p >Score:{Math.round(movie.vote_average * 10)}%</p>
-        <p className={s.descriptionMovie}>{movie.overview}</p>
+        <p>{movie.overview}</p>
         <ul className={s.genresList}>
           {
             movie.genres.map(genre => (

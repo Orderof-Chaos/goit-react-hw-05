@@ -15,9 +15,9 @@ function App() {
 
   return (
     <main>
-      <Suspense fallback={<div>Loading page...</div>}>
-      <Navigation/>
       
+      <Navigation cla/>
+      <Suspense fallback={<div>Loading page...</div>}>
         <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/movies' element={<MoviesPage/>} />

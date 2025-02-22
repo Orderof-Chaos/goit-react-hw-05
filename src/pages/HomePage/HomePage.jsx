@@ -11,7 +11,7 @@ const HomePage = () => {
         fetchTrending().then(setMovies).then(() => { setIsLoading(false) });
     }, []);
   return (
-    <div>
+    <div className={s.HomePage}>
       <h1>Trending films</h1>
       <MovieList movies={movies} isLoading={isLoading} />
     </div>

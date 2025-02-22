@@ -21,9 +21,9 @@ function MovieCast() {
     <div>
       <h2>Actors</h2>
       {cast.length > 0 ? (
-        <ul>
+        <ul className={s.actorList}>
           {cast.map(actor => (
-            <li key={actor.id}>
+            <li key={actor.id} className={s.actorBlock}>
               <img className={s.actor} src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
               <h3>{actor.name}</h3>
               <p>Character: {actor.character}</p>
@@ -31,7 +31,7 @@ function MovieCast() {
           ))}
         </ul>
       ) : (
-        <p>Not Actors</p>
+        <p>No Actors</p>
       )}
     </div>
   );

@@ -1,0 +1,17 @@
+.actor {
+  border-radius: 10px;
+  width: 360px;
+}
+h2 {
+  text-align: center;
+}
+.actorBlock {
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 6px;
+}
+.actorList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { querySearch } from "../../api.Js";
 import MovieList from "../../components/MovieList/MovieList";
 import { useSearchParams } from "react-router-dom";
+import s from "./MoviesPage.module.css"
 
 
 const MoviesPage = () => {
@@ -44,10 +45,10 @@ const MoviesPage = () => {
   
 
   return (
-    <div>
+    <div className={s.MoviesPage}>
       <form onSubmit={handleSearch}>
-        <input value={query} onChange={(e) => setQuery(e.target.value)} />
-        <button type="submit">Search</button>
+        <input className={s.searchBar} value={query} onChange={(e) => setQuery(e.target.value)} />
+        <button className={s.searchBtn} type="submit">Search</button>
       </form>
       <MovieList movies={movies} isLoading={isLoading} />
     </div>

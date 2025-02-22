@@ -1,0 +1,9 @@
+.HomePage {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  margin: 0 auto;
+}

@@ -1,0 +1,13 @@
+.listMovies {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 28px;
+}
+.link {
+  font-size: 28px;
+  background-color: rgb(8, 8, 14);
+  color: rgb(116, 169, 216);
+  padding: 6px 12px;
+  border-radius: 16px;
+}

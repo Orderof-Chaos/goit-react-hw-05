@@ -8,7 +8,7 @@ const buildLinkClass = ({ isActive }) => {
 
 const Navigation = () => {
   return (
-    <nav>
+    <nav className={s.navigation}>
       <NavLink to='/' className={buildLinkClass}>Home</NavLink>
       <NavLink to='/movies' className={buildLinkClass}>Movies</NavLink>
     </nav>
