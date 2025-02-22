@@ -1,9 +1,40 @@
-import React from 'react'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { fetchMovieCast } from "../../api.Js";
+import s from "./MovieCast.module.css";
 
-const MovieCast = () => {
+
+function MovieCast() {
+  const { movieId } = useParams();
+  const [cast, setCast] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetchMovieCast(movieId).then(setCast).then(() => { setIsLoading(false) });
+  }, [movieId]);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
-    <div>MovieCast</div>
-  )
+
+    <div>
+      <h2>Actors</h2>
+      {cast.length > 0 ? (
+        <ul>
+          {cast.map(actor => (
+            <li key={actor.id}>
+              <img className={s.actor} src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
+              <h3>{actor.name}</h3>
+              <p>Character: {actor.character}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Not Actors</p>
+      )}
+    </div>
+  );
 }
 
-export default MovieCast
+export default MovieCast;
