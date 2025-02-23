@@ -18,43 +18,25 @@ const MoviesPage = () => {
     setSearchParams(updatedParams);
   };
 
+  const urlQuery = searchParams.get("q") || ""
+
   useEffect(() => {  
-     let isCancelled = false;
-    setIsLoading(true);
+     if(!urlQuery) return
   
-    querySearch(query)
+    querySearch(urlQuery)
       .then((data) => {
-        if (!isCancelled) setMovies(data);
+        setMovies(data);
       })
   
       .finally(() => {
-        if (!isCancelled) setIsLoading(false);
+        setIsLoading(false);
       });
   
-    return () => {
-      isCancelled = true;
-    };
-   }, []);
+   }, [urlQuery]);
   
   const handleSearch = (e) => {
     e.preventDefault();
     updateSearchParams("q", query);
-    if (!query) return;
-    let isCancelled = false;
-    setIsLoading(true);
-  
-    querySearch(query)
-      .then((data) => {
-        if (!isCancelled) setMovies(data);
-      })
-  
-      .finally(() => {
-        if (!isCancelled) setIsLoading(false);
-      });
-  
-    return () => {
-      isCancelled = true;
-    };
   };
   
   
